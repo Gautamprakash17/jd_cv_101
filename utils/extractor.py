@@ -3,21 +3,11 @@ import json
 import re
 import openai
 from openai import OpenAI
-import os
-from dotenv import load_dotenv
 
+# ✅ OpenAI Setup
+from openai import OpenAI
 
-# Load environment variables from the .env file
-load_dotenv()
-
-# Access the OpenAI API key from environment variables
-openai_api_key = os.getenv("OPENAI_API_KEY")
-
-# Initialize OpenAI client with the API key from environment variables
-openai.api_key = openai_api_key
-
-# ✅ OpenAI Setup - Now you can use the OpenAI API client without hardcoding the key
-client = openai
+client = OpenAI(api_key="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")
 
 # ✅ Extract text from PDF
 def extract_pdf_text(file):
