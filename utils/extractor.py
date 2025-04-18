@@ -3,12 +3,19 @@ import json
 import re
 import openai
 from openai import OpenAI
+import os
+from dotenv import load_dotenv
 
-# ✅ OpenAI Setup
-from openai import OpenAI
+# ✅ Load environment variables from .env file
+load_dotenv()
 
-client = OpenAI(api_key="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")
-
+# ✅ OpenAI Setup: Fetch API key from environment variable
+openai_api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=openai_api_key)
+# ✅ Extract text from PDF
+def extract_pdf_text(file):
+    pdf = fitz.open(stream=file.read(), filetype="pdf")
+    return "".join([page.get_text() for page in pdf])
 # ✅ Extract text from PDF
 def extract_pdf_text(file):
     pdf = fitz.open(stream=file.read(), filetype="pdf")
