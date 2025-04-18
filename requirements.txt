@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+openai
+PyMuPDF
+pandas
+phonenumbers
+python-multipart
+xlsxwriter
